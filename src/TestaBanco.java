@@ -22,15 +22,19 @@ public class TestaBanco {
         contadoPaulo.depositar(100);
 
         System.out.println(contadoPaulo.titular.nome);
-        System.out.println(contadoPaulo.saldo);
+        System.out.println(contadoPaulo.getSaldo());
 
         System.out.println(contaMaria.titular.nome);
-        System.out.println(contaMaria.saldo);
+        System.out.println(contaMaria.getSaldo());
 
         contaMaria.transfere(500, contadoPaulo);
 
         System.out.println(contadoPaulo.titular.nome);
-        System.out.println(contadoPaulo.saldo);
+        System.out.println(contadoPaulo.getSaldo());
+
+        Conta conta = new Conta();
+        conta.depositar(2);
+        System.out.println(conta.getSaldo());
 
 
 

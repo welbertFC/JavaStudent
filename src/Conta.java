@@ -1,6 +1,6 @@
 public class Conta {
 
-    double saldo;
+    private double saldo;
     int agencia;
     int numero;
     Cliente titular;
@@ -29,11 +29,16 @@ public class Conta {
         } else {
 
             double saldoNescessario = valor - this.saldo;
-            System.out.println("saldo nescessario é de " + (saldoNescessario += saldo) + " Voce possui apenas " + saldo);
+            System.out
+                    .println("saldo nescessario é de " + (saldoNescessario += saldo) + " Voce possui apenas " + saldo);
             return false;
 
         }
 
-
     }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
 }

@@ -1,17 +1,17 @@
 public class Conta {
 
     private double saldo;
-    int agencia;
-    int numero;
+    private int agencia;
+    private int numero;
     Cliente titular;
 
-    public void depositar(double valor) {
+    public void depositar(final double valor) {
 
         this.saldo = this.saldo + valor;
 
     }
 
-    public void sacar(double valor) {
+    public void sacar(final double valor) {
 
         if (valor >= this.saldo) {
             System.out.println("Não possui saldo suficiente seu saldo é: " + saldo);
@@ -21,7 +21,7 @@ public class Conta {
         }
     }
 
-    public boolean transfere(double valor, Conta destino) {
+    public boolean transfere(final double valor, final Conta destino) {
         if (this.saldo >= valor) {
             sacar(valor);
             destino.depositar(valor);
@@ -41,4 +41,28 @@ public class Conta {
         return this.saldo;
     }
 
+    public int getNumero() {
+
+        return this.numero;
+    }
+
+    public void setNumero(int numero) {
+       
+        if (numero < 0){
+            System.out.println("Numero de conta não pode ser negativo");
+        } else{
+
+             this.numero = numero;
+        }
+    }
+
+    public int getAgencia(){
+        return this.agencia;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    
 }

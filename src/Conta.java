@@ -1,13 +1,30 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Conta {
 
     private double saldo;
     private int agencia;
     private int numero;
-    Cliente titular;
+    private Cliente titular;
+    private static int total;
+
+
+    public Conta(double saldo, int agencia, int numero, Cliente titular) {
+        Conta.total++;
+        this.saldo = saldo;
+        this.agencia = agencia;
+        this.numero = numero;
+        this.titular = titular;
+    }
 
     public void depositar(final double valor) {
 
-        this.saldo = this.saldo + valor;
+        if(valor <= 0){
+            System.out.println("não é possivel depositar valor menor que 1");
+        }else {
+
+            this.saldo = this.saldo + valor;
+        }
 
     }
 
@@ -50,9 +67,13 @@ public class Conta {
        
         if (numero < 0){
             System.out.println("Numero de conta não pode ser negativo");
-        } else{
+            return;
+        } else if(numero == 0){
+            System.out.println("Numero de conta não pode ser 0");
+            return;
 
-             this.numero = numero;
+        }else {
+            this.numero = numero;
         }
     }
 
@@ -61,8 +82,28 @@ public class Conta {
     }
 
     public void setAgencia(int agencia) {
-        this.agencia = agencia;
+        if (agencia < 0){
+            System.out.println("Numero da agencia não pode ser negativo");
+            return;
+        } else if(agencia == 0){
+            System.out.println("Numero da conta não pode ser 0");
+            return;
+
+        }else {
+            this.agencia = agencia;
+        }
     }
 
-    
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
+
+    public static int getTotal() {
+        return Conta.total;
+
+    }
 }
